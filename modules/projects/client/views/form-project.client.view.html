@@ -1,0 +1,113 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.project._id ? 'Edit Project' : 'New Project'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.projectForm" class="form-horizontal" ng-submit="vm.save(vm.form.projectForm.$valid)" novalidate>
+        <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="commandRefrence">commandRefrence</label>
+          <input name="commandRefrence" type="text" ng-model="vm.project.commandRefrence" id="estimeBudget" class="form-control" placeholder="commandRefrence" required>
+          <div ng-messages="vm.form.projectForm.commandRefrence.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">commandRefrence is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">name</label>
+          <input name="name" type="text" ng-model="vm.project.name" id="name" class="form-control" placeholder="name" required>
+          <div ng-messages="vm.form.projectForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="plannedAt">plannedAt</label>
+          <input name="plannedAt" type="text" ng-model="vm.project.plannedAt" id="plannedAt" class="form-control" placeholder="plannedAt" required>
+          <div ng-messages="vm.form.projectForm.plannedAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">plannedAt is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="deliveredAt">deliveredAt</label>
+          <input name="deliveredAt" type="text" ng-model="vm.project.deliveredAt" id="deliveredAt" class="form-control" placeholder="deliveredAt" required>
+          <div ng-messages="vm.form.projectForm.deliveredAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">deliveredAt is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="clientPlannedAt">clientPlannedAt</label>
+          <input name="clientPlannedAt" type="text" ng-model="vm.project.clientPlannedAt" id="deliveredAt" class="form-control" placeholder="clientPlannedAt" required>
+          <div ng-messages="vm.form.projectForm.clientPlannedAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">clientPlannedAt is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="clientDeliveredAt">clientDeliveredAt</label>
+          <input name="clientDeliveredAt" type="text" ng-model="vm.project.clientDeliveredAt" id="clientDeliveredAt" class="form-control" placeholder="clientDeliveredAt" required>
+          <div ng-messages="vm.form.projectForm.clientDeliveredAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">clientDeliveredAt is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="note">note</label>
+          <textarea name="note" type="text" ng-model="vm.project.note" id="note" class="form-control" placeholder="note" required></textarea>
+          <div ng-messages="vm.form.projectForm.note.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">note is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="state">state</label>
+          <select name="state" type="text" ng-model="vm.project.state" id="state" class="form-control"  required>
+            <option value=""> ==please select a state== </option>
+            <option value="state 1">state 1</option>
+            <option value="state 2">state 2</option>
+            <option value="state 3">state 3</option>
+            <option value="state 4">state 4</option>
+            <option value="state 4">state 4</option>
+          </select>
+          <div ng-messages="vm.form.projectForm.state.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">state is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="estimeBudget">estimeBudget</label>
+          <textarea name="estimeBudget" type="text" ng-model="vm.project.estimeBudget" id="estimeBudget" class="form-control" placeholder="estimeBudget" required></textarea>
+          <div ng-messages="vm.form.projectForm.estimeBudget.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">estimeBudget is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="clientBudget">clientBudget</label>
+          <textarea name="clientBudget" type="text" ng-model="vm.project.clientBudget" id="clientBudget" class="form-control" placeholder="clientBudget" required></textarea>
+          <div ng-messages="vm.form.projectForm.clientBudget.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">clientBudget is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="budget">budget</label>
+          <textarea name="budget" type="text" ng-model="vm.project.budget" id="budget" class="form-control" placeholder="budget" required></textarea>
+          <div ng-messages="vm.form.projectForm.budget.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">budget is required.</p>
+          </div>
+        </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">{{vm.customer._id ? 'Update' : 'Create'}}</button>
+          </div>
+          <div ng-show="vm.error" class="text-danger">
+            <strong ng-bind="vm.error"></strong>
+          </div>
+        </fieldset>
+      </form>
+  </div>
+</section>

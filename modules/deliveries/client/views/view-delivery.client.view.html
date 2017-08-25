@@ -1,0 +1,30 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.delivery.reference"></h1>
+    <h2 ng-bind="vm.delivery.quantity"></h2>
+    <h3 ng-bind="vm.delivery.plannedAt"></h3>
+    <h4 ng-bind="vm.delivery.deliveredAt"></h4>
+
+  </div>
+  <div class="pull-right"
+       ng-show="vm.delivery.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="deliveries.edit({ deliveryId: vm.delivery._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.delivery.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.delivery.user"
+            ng-bind="vm.delivery.user.displayName"></span>
+      <span ng-if="!vm.delivery.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.delivery.content"></p>
+</section>

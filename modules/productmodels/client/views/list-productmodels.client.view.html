@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Productmodels</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="productmodel in vm.productmodels"
+       ui-sref="productmodels.view({ productmodelId: productmodel._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="productmodel.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="productmodel.user" ng-bind="productmodel.user.displayName"></span>
+        <span ng-if="!productmodel.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="productmodel.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.productmodels.$resolved && !vm.productmodels.length">
+    No Productmodels yet, why don't you <a ui-sref="productmodels.create">create one</a>?
+  </div>
+</section>

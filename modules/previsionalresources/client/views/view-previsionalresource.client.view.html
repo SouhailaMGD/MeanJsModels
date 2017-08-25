@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.previsionalresource.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.previsionalresource.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="previsionalresources.edit({ previsionalresourceId: vm.previsionalresource._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.previsionalresource.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.previsionalresource.user"
+            ng-bind="vm.previsionalresource.user.displayName"></span>
+      <span ng-if="!vm.previsionalresource.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.previsionalresource.content"></p>
+</section>

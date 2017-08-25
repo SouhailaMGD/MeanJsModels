@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Terminalcategories</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="terminalcategory in vm.terminalcategories"
+       ui-sref="terminalcategories.view({ terminalcategoryId: terminalcategory._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="terminalcategory.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="terminalcategory.user" ng-bind="terminalcategory.user.displayName"></span>
+        <span ng-if="!terminalcategory.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="terminalcategory.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.terminalcategories.$resolved && !vm.terminalcategories.length">
+    No Terminalcategories yet, why don't you <a ui-sref="terminalcategories.create">create one</a>?
+  </div>
+</section>

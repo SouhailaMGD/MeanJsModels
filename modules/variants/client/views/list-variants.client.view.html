@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Variants</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="variant in vm.variants"
+       ui-sref="variants.view({ variantId: variant._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="variant.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="variant.user" ng-bind="variant.user.displayName"></span>
+        <span ng-if="!variant.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="variant.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.variants.$resolved && !vm.variants.length">
+    No Variants yet, why don't you <a ui-sref="variants.create">create one</a>?
+  </div>
+</section>

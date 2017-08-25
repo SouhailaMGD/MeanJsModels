@@ -1,0 +1,51 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.invoice._id ? 'Edit Invoice' : 'New Invoice'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.invoiceForm" class="form-horizontal" ng-submit="vm.save(vm.form.invoiceForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.invoice.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.invoiceForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Invoice name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="totalPrice">totalPrice</label>
+          <input name="totalPrice" type="text" ng-model="vm.invoice.totalPrice" id="totalPrice" class="form-control" placeholder="totalPrice" required>
+          <div ng-messages="vm.form.invoiceForm.totalPrice.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Invoice totalPrice is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="netPrice">netPrice</label>
+          <input name="netPrice" type="text" ng-model="vm.invoice.netPrice" id="netPrice" class="form-control" placeholder="netPrice" required>
+          <div ng-messages="vm.form.invoiceForm.netPrice.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Invoice netPrice is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="invoiceDate">invoiceDate</label>
+          <input name="invoiceDate" type="text" ng-model="vm.invoice.invoiceDate" id="invoiceDate" class="form-control" placeholder="invoiceDate" required>
+          <div ng-messages="vm.form.invoiceForm.invoiceDate.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Invoice invoiceDate is required.</p>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.invoice._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Terminals</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="terminal in vm.terminals"
+       ui-sref="terminals.view({ terminalId: terminal._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="terminal.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="terminal.user" ng-bind="terminal.user.displayName"></span>
+        <span ng-if="!terminal.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="terminal.macAddress"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.terminals.$resolved && !vm.terminals.length">
+    No Terminals yet, why don't you <a ui-sref="terminals.create">create one</a>?
+  </div>
+</section>

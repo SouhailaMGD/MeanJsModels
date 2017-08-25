@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Manufacturelines</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="manufactureline in vm.manufacturelines"
+       ui-sref="manufacturelines.view({ manufacturelineId: manufactureline._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="manufactureline.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="manufactureline.user" ng-bind="manufactureline.user.displayName"></span>
+        <span ng-if="!manufactureline.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="manufactureline.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.manufacturelines.$resolved && !vm.manufacturelines.length">
+    No Manufacturelines yet, why don't you <a ui-sref="manufacturelines.create">create one</a>?
+  </div>
+</section>

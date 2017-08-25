@@ -1,0 +1,29 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.manufacturelinetype.name"></h1>
+    <h2 ng-bind="vm.manufacturelinetype.description"></h2>
+    <h3 ng-bind="vm.manufacturelinetype.minEffective"></h3>
+    <h4 ng-bind="vm.manufacturelinetype.maxEffective"></h4>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.manufacturelinetype.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="manufacturelinetypes.edit({ manufacturelinetypeId: vm.manufacturelinetype._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.manufacturelinetype.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.manufacturelinetype.user"
+            ng-bind="vm.manufacturelinetype.user.displayName"></span>
+      <span ng-if="!vm.manufacturelinetype.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.manufacturelinetype.content"></p>
+</section>

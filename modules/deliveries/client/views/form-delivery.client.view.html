@@ -1,0 +1,72 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.delivery._id ? 'Edit Delivery' : 'New Delivery'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.deliveryForm" class="form-horizontal" ng-submit="vm.save(vm.form.deliveryForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="reference">reference</label>
+          <input name="reference" type="text" ng-model="vm.delivery.reference" id="reference" class="form-control" placeholder="reference" required>
+          <div ng-messages="vm.form.deliveryForm.reference.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Delivery reference is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="quantity">quantity</label>
+          <input name="quantity" type="text" ng-model="vm.delivery.quantity" id="quantity" class="form-control" placeholder="quantity" required>
+          <div ng-messages="vm.form.deliveryForm.quantity.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Delivery quantity is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="plannedAt">plannedAt</label>
+          <input name="plannedAt" type="text" ng-model="vm.delivery.plannedAt" id="plannedAt" class="form-control" placeholder="plannedAt" required>
+          <div ng-messages="vm.form.deliveryForm.plannedAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Delivery plannedAt is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="deliveredAt">deliveredAt</label>
+          <input name="deliveredAt" type="text" ng-model="vm.delivery.deliveredAt" id="deliveredAt" class="form-control" placeholder="deliveredAt" required>
+          <div ng-messages="vm.form.deliveryForm.deliveredAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Delivery deliveredAt is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="note">note</label>
+          <input name="note" type="text" ng-model="vm.delivery.note" id="note" class="form-control" placeholder="note" required>
+          <div ng-messages="vm.form.deliveryForm.note.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Delivery note is required.</p>
+          </div>
+        </div>
+
+     
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="state">state</label>
+          <input name="state" type="text" ng-model="vm.delivery.state" id="state" class="form-control" placeholder="state" required>
+          <div ng-messages="vm.form.deliveryForm.state.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Delivery state is required.</p>
+          </div>
+        </div>
+
+
+       
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.delivery._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.manufactureline._id ? 'Edit Manufactureline' : 'New Manufactureline'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.manufacturelineForm" class="form-horizontal" ng-submit="vm.save(vm.form.manufacturelineForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.manufactureline.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.manufacturelineForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufactureline name is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="effective">effective</label>
+          <input name="effective" type="text" ng-model="vm.manufactureline.effective" id="effective" class="form-control" placeholder="effective" required>
+          <div ng-messages="vm.form.manufacturelineForm.effective.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufactureline effective is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="state">state</label>
+          <select name="state" type="text" ng-model="vm.manufactureline.state" id="state" class="form-control"  >
+            <option value=""> ==please select a state== </option>
+            <option value="state 1">state 1</option>
+            <option value="state 2">state 2</option>
+            <option value="state 3">state 3</option>
+            <option value="state 4">state 4</option>
+            <option value="state 4">state 4</option>
+          </select>
+          <div ng-messages="vm.form.manufacturelineForm.state.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">state is required.</p>
+          </div>
+        </div>
+
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="inputTerminalState">inputTerminalState</label>
+          <input type="checkbox" name="inputTerminalState" ng-model="vm.manufactureline.inputTerminalState" id="inputTerminalState" class="form-control" >
+          <span class="slider"></span>
+          <div ng-messages="vm.form.manufacturelineForm.inputTerminalState.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufactureline inputTerminalState is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="outpuTerminalState">outpuTerminalState</label>
+          <input type="checkbox" name="outpuTerminalState" ng-model="vm.manufactureline.outpuTerminalState" id="outpuTerminalState" class="form-control" >
+          <span class="slider"></span>
+          <div ng-messages="vm.form.manufacturelineForm.outpuTerminalState.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufactureline outpuTerminalState is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="displayState">displayState</label>
+          <input type="checkbox" name="displayState" ng-model="vm.manufactureline.displayState" id="displayState" class="form-control" >
+          <span class="slider"></span>
+          <div ng-messages="vm.form.manufacturelineForm.displayState.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufactureline displayState is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="processOrder">process order</label>
+          <input name="processOrder" type="number" ng-model="vm.manufactureline.processOrder" id="processOrder" class="form-control" placeholder="processOrder" required>
+          <div ng-messages="vm.form.manufacturelineForm.processOrder.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufactureline processOrder is required.</p>
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.manufactureline._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

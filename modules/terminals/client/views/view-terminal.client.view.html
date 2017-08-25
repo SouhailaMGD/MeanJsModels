@@ -1,0 +1,29 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.terminal.macAddress"></h1>
+    <h2 ng-bind="vm.terminal.ipAddress"></h2>
+    <h3 ng-bind="vm.terminal.state"></h3>
+    <h4 ng-bind="vm.terminal.authorization"></h4>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.terminal.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="terminals.edit({ terminalId: vm.terminal._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.terminal.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.terminal.user"
+            ng-bind="vm.terminal.user.displayName"></span>
+      <span ng-if="!vm.terminal.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.terminal.content"></p>
+</section>

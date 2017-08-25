@@ -1,0 +1,65 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.terminal._id ? 'Edit Terminal' : 'New Terminal'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.terminalForm" class="form-horizontal" ng-submit="vm.save(vm.form.terminalForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="macAddress">macAddress</label>
+          <input name="macAddress" type="text" ng-model="vm.terminal.macAddress" id="macAddress" class="form-control" placeholder="macAddress" required>
+          <div ng-messages="vm.form.terminalForm.macAddress.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Terminal macAddress is required.</p>
+          </div>
+        </div>
+
+          <div class="form-group" show-errors>
+          <label class="control-label" for="ipAddress">ipAddress</label>
+          <input name="ipAddress" type="text" ng-model="vm.terminal.ipAddress" id="ipAddress" class="form-control" placeholder="ipAddress" required>
+          <div ng-messages="vm.form.terminalForm.ipAddress.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Terminal ipAddress is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="state">state</label>
+          <select name="state" type="text" ng-model="vm.terminal.state" id="state" class="form-control"  required>
+            <option value=""> ==please select a state== </option>
+            <option value="state 1">state 1</option>
+            <option value="state 2">state 2</option>
+            <option value="state 3">state 3</option>
+            <option value="state 4">state 4</option>
+            <option value="state 4">state 4</option>
+          </select>
+          <div ng-messages="vm.form.terminalForm.state.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">state is required.</p>
+          </div>
+        </div>
+
+
+          <div class="form-group" show-errors>
+          <label class="control-label" for="authorization">authorization</label>
+          <select name="authorization" type="text" ng-model="vm.terminal.authorization" id="authorization" class="form-control"  required>
+            <option value=""> ==please select an authorization== </option>
+            <option value="authorization 1">authorization 1</option>
+            <option value="authorization 2">authorization 2</option>
+            <option value="authorization 3">authorization 3</option>
+            <option value="authorization 4">authorization 4</option>
+            <option value="authorization 4">authorization 4</option>
+          </select>
+          <div ng-messages="vm.form.terminalForm.authorization.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">authorization is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.terminal._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

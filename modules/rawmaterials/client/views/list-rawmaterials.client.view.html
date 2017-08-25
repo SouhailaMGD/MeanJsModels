@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Rawmaterials</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="rawmaterial in vm.rawmaterials"
+       ui-sref="rawmaterials.view({ rawmaterialId: rawmaterial._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="rawmaterial.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="rawmaterial.user" ng-bind="rawmaterial.user.displayName"></span>
+        <span ng-if="!rawmaterial.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="rawmaterial.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.rawmaterials.$resolved && !vm.rawmaterials.length">
+    No Rawmaterials yet, why don't you <a ui-sref="rawmaterials.create">create one</a>?
+  </div>
+</section>

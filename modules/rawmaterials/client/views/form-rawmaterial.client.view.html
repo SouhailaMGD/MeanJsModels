@@ -1,0 +1,42 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.rawmaterial._id ? 'Edit Rawmaterial' : 'New Rawmaterial'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.rawmaterialForm" class="form-horizontal" ng-submit="vm.save(vm.form.rawmaterialForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.rawmaterial.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.rawmaterialForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Rawmaterial name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="reference">reference</label>
+          <input name="reference" type="text" ng-model="vm.rawmaterial.reference" id="reference" class="form-control" placeholder="reference" required>
+          <div ng-messages="vm.form.rawmaterialForm.reference.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Rawmaterial reference is required.</p>
+          </div>
+        </div>
+
+              <div class="form-group" show-errors>
+          <label class="control-label" for="description">description</label>
+          <textarea name="description" type="text" ng-model="vm.rawmaterial.description" id="description" class="form-control" placeholder="description" required></textarea>
+         
+        </div>
+
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.rawmaterial._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

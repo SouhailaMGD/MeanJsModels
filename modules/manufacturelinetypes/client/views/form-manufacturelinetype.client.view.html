@@ -1,0 +1,52 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.manufacturelinetype._id ? 'Edit Manufacturelinetype' : 'New Manufacturelinetype'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.manufacturelinetypeForm" class="form-horizontal" ng-submit="vm.save(vm.form.manufacturelinetypeForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.manufacturelinetype.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.manufacturelinetypeForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturelinetype name is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="description">description</label>
+          <textarea name="description" type="text" ng-model="vm.manufacturelinetype.description" id="description" class="form-control" placeholder="description" required></textarea>
+          <div ng-messages="vm.form.manufacturelinetypeForm.description.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturelinetype description is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="minEffective">minEffective</label>
+          <input name="minEffective" type="number" ng-model="vm.manufacturelinetype.minEffective" id="minEffective" class="form-control" placeholder="minEffective" required>
+          <div ng-messages="vm.form.manufacturelinetypeForm.minEffective.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturelinetype minEffective is required.</p>
+          </div>
+        </div>
+
+         <div class="form-group" show-errors>
+          <label class="control-label" for="maxEffective">maxEffective</label>
+          <input name="maxEffective" type="number" ng-model="vm.manufacturelinetype.maxEffective" id="maxEffective" class="form-control" placeholder="maxEffective" required>
+          <div ng-messages="vm.form.manufacturelinetypeForm.maxEffective.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturelinetype maxEffective is required.</p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.manufacturelinetype._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

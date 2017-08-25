@@ -1,0 +1,58 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.customer._id ? 'Edit Customer' : 'New Customer'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.customerForm" class="form-horizontal" ng-submit="vm.save(vm.form.customerForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Full Name</label>
+          <input name="name" type="text" ng-model="vm.customer.fullname" id="name" class="form-control" placeholder="Full Name" required>
+          <div ng-messages="vm.form.customerForm.fullname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Customer name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="company_Name">Compnay Name</label>
+          <input name="company_Name" type="text" ng-model="vm.customer.company_Name" id="company_Name" class="form-control" placeholder="company name" required>
+          <div ng-messages="vm.form.customerForm.company_Name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">company name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="email">email</label>
+          <input name="email" type="text" ng-model="vm.customer.email" id="email" class="form-control" placeholder="Email" required>
+          <div ng-messages="vm.form.customerForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">email is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="phone">phone</label>
+          <input name="phone" type="text" ng-model="vm.customer.phone" id="phone" class="form-control" placeholder="phone" required>
+          <div ng-messages="vm.form.customerForm.phone.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">phone is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="address">Address</label>
+          <textarea name="address" type="text" ng-model="vm.customer.address" id="address" class="form-control" placeholder="Address" required></textarea>
+          <div ng-messages="vm.form.customerForm.address.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Customer address is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.customer._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.manufacturing._id ? 'Edit Manufacturing' : 'New Manufacturing'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.manufacturingForm" class="form-horizontal" ng-submit="vm.save(vm.form.manufacturingForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.manufacturing.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.manufacturingForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturing name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="input">input</label>
+          <input name="input" type="number" ng-model="vm.manufacturing.input" id="input" class="form-control" placeholder="input" required>
+          <div ng-messages="vm.form.manufacturingForm.input.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturing input is required.</p>
+          </div>
+        </div>
+
+          <div class="form-group" show-errors>
+          <label class="control-label" for="output">output</label>
+          <input name="output" type="number" ng-model="vm.manufacturing.output" id="output" class="form-control" placeholder="output" required>
+          <div ng-messages="vm.form.manufacturingForm.output.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturing output is required.</p>
+          </div>
+        </div>
+
+          <div class="form-group" show-errors>
+          <label class="control-label" for="savedAt">savedAt</label>
+          <input name="savedAt" type="text" ng-model="vm.manufacturing.savedAt" id="savedAt" class="form-control" placeholder="savedAt" required>
+          <div ng-messages="vm.form.manufacturingForm.savedAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturing savedAt is required.</p>
+          </div>
+        </div>
+
+          <div class="form-group" show-errors>
+          <label class="control-label" for="releasedAt">releasedAt</label>
+          <input name="releasedAt" type="text" ng-model="vm.manufacturing.releasedAt" id="releasedAt" class="form-control" placeholder="releasedAt" required>
+          <div ng-messages="vm.form.manufacturingForm.releasedAt.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Manufacturing releasedAt is required.</p>
+          </div>
+        </div>
+
+           <div class="form-group" show-errors>
+          <label class="control-label" for="state">state</label>
+          <select name="state" type="text" ng-model="vm.manufacturing.state" id="state" class="form-control"  required>
+            <option value=""> ==please select a state== </option>
+            <option value="state 1">state 1</option>
+            <option value="state 2">state 2</option>
+            <option value="state 3">state 3</option>
+            <option value="state 4">state 4</option>
+            <option value="state 4">state 4</option>
+          </select>
+          <div ng-messages="vm.form.manufacturingForm.state.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">state is required.</p>
+          </div>
+        </div>
+
+
+          <div class="form-group" show-errors>
+          <label class="control-label" for="note">note</label>
+          <textarea name="note" type="text" ng-model="vm.manufacturing.note" id="note" class="form-control" placeholder="note" required></textarea>
+         
+        </div>
+
+
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.manufacturing._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
