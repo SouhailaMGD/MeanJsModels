@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Customfields</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="customfield in vm.customfields"
+       ui-sref="customfields.view({ customfieldId: customfield._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="customfield.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="customfield.user" ng-bind="customfield.user.displayName"></span>
+        <span ng-if="!customfield.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="customfield.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.customfields.$resolved && !vm.customfields.length">
+    No Customfields yet, why don't you <a ui-sref="customfields.create">create one</a>?
+  </div>
+</section>
